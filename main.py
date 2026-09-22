@@ -1,15 +1,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
+import subprocess
+import sys
 
 
 # ============================================================
 # CONFIGURACIÓN
 # ============================================================
 
-ARCHIVO = "Connacionales_inscritos_en_el_Registro_Ciudadano_en_Línea_20260921.csv"
+BASE_DIR = Path(__file__).resolve().parent
+SCRIPT_LIMPIEZA = BASE_DIR / "limpieza_datos.py"
+ARCHIVO = BASE_DIR / "Connacionales_limpios.csv"
 
-CARPETA_RESULTADOS = Path("resultados")
+CARPETA_RESULTADOS = BASE_DIR / "resultados"
 CARPETA_GRAFICOS = CARPETA_RESULTADOS / "graficos"
 
 CARPETA_RESULTADOS.mkdir(exist_ok=True)
@@ -17,18 +21,33 @@ CARPETA_GRAFICOS.mkdir(exist_ok=True)
 
 
 # ============================================================
-# 1. CARGAR EL ARCHIVO CSV
+# 0. EJECUTAR SCRIPT DE LIMPIEZA AUTOMÁTICAMENTE
 # ============================================================
 
 print("=" * 70)
+print("EJECUTANDO PREPROCESAMIENTO Y LIMPIEZA DE DATOS...")
+print("=" * 70)
+
+try:
+    subprocess.run([sys.executable, str(SCRIPT_LIMPIEZA)], check=True)
+except Exception as e:
+    print(f"\nADVERTENCIA: No se pudo ejecutar automáticamente el script de limpieza: {e}")
+    print("Intentando cargar el archivo preprocesado existente...")
+
+
+# ============================================================
+# 1. CARGAR EL ARCHIVO CSV LIMPIO
+# ============================================================
+
+print("\n" + "=" * 70)
 print("ANÁLISIS ESTADÍSTICO DE CONNACIONALES EN EL EXTERIOR")
 print("=" * 70)
 
 try:
-    df = pd.read_csv(ARCHIVO)
+    df = pd.read_csv(ARCHIVO, low_memory=False)
 
 except FileNotFoundError:
-    print("\nERROR: No se encontró el archivo:")
+    print("\nERROR: No se encontró el archivo limpio:")
     print(ARCHIVO)
     print("\nVerifica que el CSV esté en la misma carpeta que main.py.")
     exit()
