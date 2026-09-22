@@ -1,0 +1,19 @@
+# Ignorar archivos CSV (grandes conjuntos de datos)
+*.csv
+
+# Archivos de entorno virtual e instalación
+.venv/
+env/
+venv/
+ENV/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos del sistema y de editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,27 @@
+Total registros iniciales: 590,879
+
+--- 1. Eliminación de espacios en blanco extras ---
+Se eliminaron espacios al inicio y final en todas las variables de texto.
+
+--- 2. Corrección de Inconsistencias en Países e ISO ---
+  - Se unificó 'CHINA, REPÚBLICA POPULAR' -> 'CHINA' (1 registros).
+  - Se unificó 'VIET NAM' -> 'VIETNAM' (79 registros).
+  - Se unificó 'ANTILLAS HOLANDESAS' -> 'PAISES BAJOS' (72 registros).
+
+--- 3. Estandarización de Valores Faltantes Implícitos ---
+  - Nivel Académico 'SIN INFORMACIÓN' unificado: 229,049 registros.
+  - Área Conocimiento 'SIN INFORMACIÓN' unificada: 319,945 registros.
+  - Estado civil 'SIN INFORMACIÓN' unificado: 35,621 registros.
+  - Sexo 'SIN INFORMACIÓN' unificado: 194 registros.
+  - Pertenencia étnica 'NINGUNA / NO REGISTRA' unificada: 578,076 registros.
+  - Ciudad de Nacimiento 'SIN INFORMACIÓN' unificada: 39,761 registros.
+
+--- 4. Corrección de Fechas Sentinelas (1900-01) ---
+  - Registros con fecha sentinela '1900-01' marcados como 'SIN INFORMACIÓN': 162 registros.
+
+--- 5. Imputación de Localización Nula ---
+  - Registros de Localización nulos imputados como 'SIN INFORMACIÓN': 7 registros.
+
+--- 6. Exportación del Dataset Limpio ---
+Dataset limpio guardado exitosamente en:
+  C:\Users\Andres\Desktop\UNIVERSIDAD SEMESTRES\CUARTO_SEMESTRE\PROBABILI_ESTADIS\Proyecto\Datos_PYE\Connacionales_limpios.csv
