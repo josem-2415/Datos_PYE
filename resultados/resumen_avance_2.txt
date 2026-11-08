@@ -1,0 +1,149 @@
+================================================================================
+RESUMEN ESTADÍSTICO - AVANCE 2
+Total de observaciones analizadas: 590,879
+================================================================================
+
+================================================================================
+1. CLASIFICACIÓN DE VARIABLES DEL DATASET
+================================================================================
+            Variable                   Tipo              Subtipo    Escala
+         Edad (años)           Cuantitativa  Continua / Discreta     Razón
+Cantidad de personas           Cuantitativa             Discreta     Razón
+             Latitud           Cuantitativa             Continua Intervalo
+            Longitud           Cuantitativa             Continua Intervalo
+   Fecha de Registro Temporal / Cronológica    Periodo (Año-Mes) Intervalo
+     Nivel Académico            Cualitativa              Ordinal   Ordinal
+        Estado civil            Cualitativa              Nominal   Nominal
+                Sexo            Cualitativa Nominal / Dicotómica   Nominal
+                País            Cualitativa              Nominal   Nominal
+     Código ISO país            Cualitativa              Nominal   Nominal
+Ciudad de Residencia            Cualitativa              Nominal   Nominal
+    Oficina consular            Cualitativa              Nominal   Nominal
+   Área Conocimiento            Cualitativa              Nominal   Nominal
+  Pertenencia étnica            Cualitativa              Nominal   Nominal
+   Ciudad Nacimiento            Cualitativa              Nominal   Nominal
+
+Resumen de clasificación: 4 Cuantitativas individuales + 1 Variable Temporal + 10 Cualitativas = 15 Variables analizadas.
+
+================================================================================
+2. CORRELACIÓN LINEAL DE PEARSON Y MATRIZ DE CORRELACIÓN
+================================================================================
+
+Matriz de Correlación de Pearson:
+                      Edad (años)  Cantidad de personas  Latitud  Longitud
+Edad (años)               1.00000              -0.03293 -0.03873  -0.00379
+Cantidad de personas     -0.03293               1.00000 -0.01965   0.01050
+Latitud                  -0.03873              -0.01965  1.00000  -0.02691
+Longitud                 -0.00379               0.01050 -0.02691   1.00000
+
+Análisis Detallado: Edad (años) vs Cantidad de personas:
+  - Coeficiente de correlación de Pearson (r): -0.03293
+  - Coeficiente de determinación (R^2):         0.001084 (0.1084%)
+  - Valor p (p-value):                         1.9394e-141
+  - Tamaño de muestra (N):                     590,872
+  - Magnitud y sentido: Correlación prácticamente nula / despreciable (|r| < 0.10).
+  - Significancia:      Estadísticamente significativa (p < 0.05), producto del gran tamaño muestral.
+  - Interpretación Teórica: El valor r = -0.03293 refleja que no existe una
+    asociación lineal entre la edad del connacional (entre 25 y 40 años) y el número
+    de personas que declara en su registro. La variabilidad explicada es casi 0% (0.11%).
+
+================================================================================
+3. DIAGRAMA DE CAJAS POR GRUPOS (CUANTITATIVA VS CUALITATIVA)
+================================================================================
+
+Estadísticas Descriptivas de Edad (años) según Nivel Académico:
+    Nivel Académico      N  Media  Mediana  Desv_Est   Q1   Q3  IQR  Minimo  Maximo
+           PRIMARIA  13069  33.26     34.0      4.42 30.0 37.0  7.0      25      40
+       BACHILLERATO 158977  32.62     33.0      4.38 29.0 36.0  7.0      25      40
+TÉCNICA PROFESIONAL  38778  32.92     33.0      4.26 30.0 36.0  6.0      25      40
+        TECNOLÓGICA  20474  32.97     33.0      4.17 30.0 36.0  6.0      25      40
+        PROFESIONAL  94355  33.51     34.0      4.02 30.0 37.0  7.0      25      40
+    ESPECIALIZACIÓN  10461  35.15     36.0      3.61 33.0 38.0  5.0      25      40
+           MAESTRÍA  22419  34.43     35.0      3.92 31.0 38.0  7.0      25      40
+          DOCTORADO   3288  35.64     36.0      3.49 33.0 39.0  6.0      25      40
+
+Prueba ANOVA de 1 Vía (Edad según Nivel Académico):
+  - Estadístico F: 1281.67, Valor p: 0.0000e+00
+  - Conclusión: Existen diferencias estadísticamente significativas en la media de edad
+    entre los diferentes niveles académicos (los grados de posgrado presentan mayor edad).
+
+================================================================================
+4. TABLA CRUZADA DE CONTINGENCIA Y BARRAS APILADAS
+================================================================================
+
+Tabla Cruzada de Contingencia (Frecuencias Absolutas):
+Sexo                 FEMENINO  MASCULINO   Total
+Nivel Académico                                 
+PRIMARIA                 5193       7867   13060
+BACHILLERATO            73972      84960  158932
+TÉCNICA PROFESIONAL     22853      15915   38768
+TECNOLÓGICA             10738       9735   20473
+PROFESIONAL             56154      38182   94336
+ESPECIALIZACIÓN          6503       3958   10461
+MAESTRÍA                13369       9038   22407
+DOCTORADO                1517       1770    3287
+Total                  190299     171425  361724
+
+Tabla Cruzada Porcentual (% por fila - Nivel Académico):
+Sexo                 FEMENINO  MASCULINO
+Nivel Académico                         
+PRIMARIA                39.76      60.24
+BACHILLERATO            46.54      53.46
+TÉCNICA PROFESIONAL     58.95      41.05
+TECNOLÓGICA             52.45      47.55
+PROFESIONAL             59.53      40.47
+ESPECIALIZACIÓN         62.16      37.84
+MAESTRÍA                59.66      40.34
+DOCTORADO               46.15      53.85
+
+Prueba de Independencia Chi-Cuadrado de Pearson:
+  - Chi-cuadrado (Chi^2): 6,530.53
+  - Grados de libertad (gl): 7
+  - Valor p: 0.0000e+00
+  - V de Cramer (tamano del efecto): 0.1344
+  - Conclusión: Existe una asociación estadísticamente significativa entre el nivel
+    académico y el sexo. Las mujeres presentan mayor proporción en estudios de
+    Profesional (59.5%), Maestría (59.7%) y Especialización (62.2%), mientras los hombres
+    tienen mayor proporción en Primaria (60.2%) y Bachillerato (53.5%).
+
+================================================================================
+5. PRONÓSTICOS DE SERIES DE TIEMPO (DIMENSIÓN TEMPORAL > 30 PERIODOS)
+================================================================================
+
+Información de la Serie de Tiempo:
+  - Fecha inicial: 2013-02
+  - Fecha final:   2025-12
+  - Total de periodos mensuales: 155 (Supera con creces el requisito mínimo de 30)
+  - Promedio de registros mensuales: 3,811.08
+  - Desviación estándar:             2,326.74
+  - Mínimo mensual:                  24
+  - Máximo mensual:                  13,225
+
+Partición para Validación de Modelos:
+  - Conjunto de Entrenamiento (Train): 143 meses (2013-02 a 2024-12)
+  - Conjunto de Prueba (Test):         12 meses (2025-01 a 2025-12)
+
+Evaluación Comparativa de Modelos de Pronóstico en Test:
+                                                  Modelo    RMSE     MAE  MAPE (%)
+                    Suavización Exponencial Simple (SES) 2872.10 2001.78    113.65
+                       Método de Holt (Tendencia Lineal) 2763.97 1746.58    119.94
+Método Holt-Winters (Tendencia + Estacionalidad Aditiva) 2545.29 1563.89    108.74
+
+Modelo Seleccionado: Método Holt-Winters (Tendencia + Estacionalidad Aditiva)
+Justificación: Presenta los menores errores cuadrático (RMSE) y absoluto (MAE),
+capturando eficientemente los ciclos anuales y picos estacionales de trámites consulares.
+
+Pronóstico Oficial de Inscripciones de Connacionales para los Próximos 12 Meses (2026):
+Mes_Proyectado  Pronostico_Inscripciones  Limite_Inferior_95%  Limite_Superior_95%
+       2026-01                      7191                 5023                 9358
+       2026-02                      7399                 5232                 9566
+       2026-03                      7927                 5760                10095
+       2026-04                      6711                 4544                 8878
+       2026-05                      7073                 4906                 9240
+       2026-06                      7002                 4834                 9169
+       2026-07                      7129                 4962                 9296
+       2026-08                      7077                 4910                 9244
+       2026-09                      7388                 5221                 9555
+       2026-10                      7783                 5616                 9950
+       2026-11                      8427                 6260                10595
+       2026-12                      6480                 4313                 8647
